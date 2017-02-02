@@ -13,27 +13,27 @@ Things you may want to cover:
 
 * Database creation
 
-#テーブル設計
+# テーブル設計
 
-###テーブル名
+### テーブル名
 - カラム名 型 制約
 
-###users
+### users
 - id integer
 - name string null: false
 - email string unique: true
 - password string null: false
 
-###groups
+### groups
 - id integer
 - name string null: false
 
-###chat_users
+### chat_users
 - id integer
 - user_id integer foreign_key: true
 - group_id integer foreign_key: true
 
-###msgs
+### msessages
 - id string
 - body text null: false
 - image string
