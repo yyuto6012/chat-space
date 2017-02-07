@@ -1,16 +1,10 @@
-// Place all the styles related to the top controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$bg-color1: #38AEF0;
+$bg-color2: #FFFFFF;
+
 html, body {
   height: 100%;
   width: 1440px;
 }
-
-
-
-// .contents{
-//   width: 960px;
-// }
 
 .clearfix:after {
   content: "";
@@ -18,11 +12,10 @@ html, body {
   display: block;
 }
 
-
-.create-message{
+.create-message {
+  background-color: $bg-color1;
   height: 25px;
-  background-color: #38AEF0;
-    p{
+    p {
       color: white;
       font-size: 15px;
       text-align: center;
@@ -30,141 +23,144 @@ html, body {
     }
 }
 
-
-.chat-user{
-  width: 300px;
+.chat-user {
   float: left;
+  width: 300px;
     &__myself{
       height: 100px;
       background-color: #253141;
-        p{
+        p {
           float: left;
-          color: #FFFFFF;
+          padding-top: 30px;
+          padding-left: 10px;
+          color: $bg-color2;
           font-size: 20px;
           text-align: center;
           vertical-align: middle;
-          padding-top: 30px;
-          padding-left: 10px;
         }
-        .fa-cog{
-          font-size: 30px;
+        .fa-cog {
           float: right;
           padding-top: 35px;
           padding-right: 20px;
-        }
-        .fa-pencil-square-o{
           font-size: 30px;
+
+        }
+        .fa-pencil-square-o {
           float: right;
           padding-top: 35px;
           padding-right: 10px;
+          font-size: 30px;
         }
     }
-    &__groups{
+
+    &__groups {
       height: 780px;
       background-color: #2f3e51;
-          .groups{
+        .groups {
               height: 91px;
-                  li{
-                    padding-left: 10px;
-                    font-size: 15px;
+                  li {
                     padding-top: 20px;
-                    color: #FFFFFF;
-                        span{
-                          font-size: 11px;
+                    padding-left: 10px;
+                    color: $bg-color2;
+                    font-size: 15px;
+                        span {
                           padding-top: 5px;
                           padding-bottom: 5px;
-                          color: #FFFFFF;
+                          color: $bg-color2;
+                          font-size: 11px;
                             }
                     }
-                 }
-            }
+        }
     }
+}
 
 
-.chat-screen{
+.chat-screen {
   float: left;
   width: 1140px;
-    &__group{
+    &__group {
       height: 100px;
-          .group-name{
-                  width: 200px;
+          .group-name {
                   float: left;
-                        h1{
-                          font-size: 20px;
-                          color: #333333;
+                  width: 200px;
+                        h1 {
                           padding-top: 30px;
                           padding-left: 40px;
+                          color: #333333;
+                          font-size: 20px;
                         }
-                        h2{
-                          font-size: 12px;
-                          color: #999999;
+                        h2 {
                           padding-top: 15px;
                           padding-left: 40px;
+                          color: #999999;
+                          font-size: 12px;
                         }
                       }
-                    .edit{
+                    .edit {
                          float: right;
-                         border-style: solid;
-                         border-color: #38AEF0;
                          margin: 2px;
-                         background-color: #FFFFFF;
                          margin-top: 25px;
                          margin-right: 30px;
+                         border-style: solid;
+                         border-color: #38AEF0;
+                         background-color: $bg-color2;
                               input {
-                                 height: 40px;
                                  width: 60px;
+                                 height: 40px;
+                                 color: $bg-color1;
                                  font-size: 15px;
                                  text-align: center;
-                                 color: #38AEF0;
                                     }
                           }
     }
-    &__messages{
+
+    &__messages {
       height: 680px;
       background-color: #AAAAAA;
-        .messages li{
+        .messages li {
                       padding-top: 40px;
                       padding-left: 40px;
+                      color: $bg-color2;
                       font-size: 15px;
-                      color: #FFFFFF;
-                            span{
-                              font-size: 11px;
+                            span {
                               color: #FFFFFF;
+                              font-size: 11px;
                                 }
                     }
                 }
-    &__submit{
+
+    &__submit {
       height: 100px;
       background-color: #434A54;
-      .message{
-          float: left;
-          padding-top: 20px;
-          padding-left: 20px;
-                input#message {
-                    margin: auto;
-                    border-right: 20px;
-                    padding-left: 20px;
-                    height: 60px;
-                    width: 950px;
-                    font-size: 15px;
-                    border-style: none;
-                      }
+          .message {
+            float: left;
+            padding-top: 20px;
+            padding-left: 20px;
+                  input#message {
+                      width: 950px;
+                      height: 60px;
+                      margin: auto;
+                      padding-left: 20px;
+                      border-right: 20px;
+                      border-style: none;
+                      font-size: 15px;
+                        }
           }
-        .send{
-           float: right;
-           padding-top: 20px;
-           padding-right: 20px;
-           margin: 0 auto;
-                      input#send {
-                          border-right: 20px ;
-                          text-align: center;
-                          height: 60px;
-                          width: 100px;
-                          font-size: 15px;
-                          border-style: none;
-                    }
-              }
+          .send {
+             float: right;
+             margin: 0 auto;
+             padding-top: 20px;
+             padding-right: 20px;
+                        input#send {
+                            width: 100px;
+                            height: 60px;
+                            border-right: 20px ;
+                            border-style: none;
+                            font-size: 15px;
+                            font-size: 15px;
+                        }
+        }
 
-      }
+    }
 }
 
