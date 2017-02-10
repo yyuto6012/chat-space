@@ -7,16 +7,11 @@
       = link_to new_group_path do
         .fa.fa-pencil-square-o
     .chat-user__groups
-      %ul.groups
-        %li
-          techmaster
-          %span まだメッセージはありません
-        %li
-          techchat
-          %span まだメッセージはありません
-        %li
-          mentor task management
-          %span まだメッセージはありません
+      - @groups.each do |group|
+        %ul.groups
+          %li
+            = group.group_name
+            %span まだメッセージはありません
   .chat-screen
     .chat-screen__group{:clearfix => ""}
       .group-name
