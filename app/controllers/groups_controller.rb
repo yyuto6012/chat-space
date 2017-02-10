@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    Group.create(groups_params)
+    @group = Group.create(groups_params)
     redirect_to controller: :top, action: :index
   end
 
