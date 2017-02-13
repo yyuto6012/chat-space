@@ -23,6 +23,17 @@ html, body {
     }
 }
 
+.create-message {
+  background-color: $bg-color1;
+  height: 25px;
+    p {
+      color: white;
+      font-size: 15px;
+      text-align: center;
+      vertical-align: middle;
+    }
+}
+
 .chat-user {
   float: left;
   width: 300px;
@@ -42,14 +53,14 @@ html, body {
           float: right;
           padding-top: 35px;
           padding-right: 20px;
-          font-size: 30px;
+          font-size: 25px;
 
         }
         .fa-pencil-square-o {
           float: right;
           padding-top: 35px;
           padding-right: 10px;
-          font-size: 30px;
+          font-size: 25px;
         }
     }
 

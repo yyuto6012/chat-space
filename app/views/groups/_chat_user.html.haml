@@ -1,0 +1,14 @@
+.chat-user
+  .chat-user__myself
+    %p yuuto
+    = link_to edit_user_registration_path do
+      .i.fa.fa-cog
+    = link_to new_group_path do
+      .fa.fa-pencil-square-o
+  .chat-user__groups
+    - @groups.each do |group|
+      %ul.groups
+        = link_to group_messages_path(group) do
+          %li
+            = group.group_name
+            %span まだメッセージはありません

@@ -1,0 +1,25 @@
+= render partial: "groups/chat_user"
+.chat-screen
+  .chat-screen__group{:clearfix => ""}
+    .group-name
+      = @group.group_name
+      %h2 Members:  yuto tensho
+    .edit
+      = link_to edit_group_path(@group) do
+        %input#edit_button{:name => "edit", :type => "edit", :value => "edit"}/
+  .chat-screen__messages
+    %ul.messages
+      %li
+        yuto
+        %span chatspace楽しい
+      %li
+        yuto
+        %span chatspace楽しい
+      %li
+        yuto
+        %span chatspace楽しい
+  .chat-screen__submit
+    .message
+      %input#message{:name => "message", :type => "message", :value => "type a message"}/
+    .send
+      %input#send{:name => "send", :type => "send", :value => "send"}/
