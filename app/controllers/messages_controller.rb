@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
-before_action :all_groups
-before_action :selected_group
+before_action :all_groups, only: [:index]
+before_action :selected_group, only: [:index]
 
   def index
     @messages = @group.messages
@@ -29,7 +29,7 @@ private
   end
 
   def message_params
-   params.require(:message).permit(:body).merge(user_id:current_user.id,group_id: params[:group_id] )
+   params.require(:message).permit(:body).merge(user_id: current_user.id, group_id: params[:group_id])
   end
 
 end
