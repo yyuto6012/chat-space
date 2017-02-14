@@ -10,5 +10,10 @@
       %ul.groups
         = link_to group_messages_path(group) do
           %li
-            = group.group_name
-            %span まだメッセージはありません
+            .group_name
+              = group.group_name
+              .group_body
+                - if group.messages.present?
+                  = group.messages.last.body
+                - else
+                  %span まだメッセージがありません

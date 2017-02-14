@@ -3,23 +3,25 @@
   .chat-screen__group{:clearfix => ""}
     .group-name
       = @group.group_name
-      %h2 Members:  yuto tensho
+      .chat_users
+        %h2 Members:
+        - @group.users.each do |user|
+          = user.name
     .edit
       = link_to edit_group_path(@group) do
         %input#edit_button{:name => "edit", :type => "edit", :value => "edit"}/
   .chat-screen__messages
-    %ul.messages
-      %li
-        yuto
-        %span chatspace楽しい
-      %li
-        yuto
-        %span chatspace楽しい
-      %li
-        yuto
-        %span chatspace楽しい
+    - if @messages
+      - @messages.each do |message|
+        %ul.messages
+          %li
+            .user_name
+              = message.user.name
+            .message_body
+              = message.body
   .chat-screen__submit
-    .message
-      %input#message{:name => "message", :type => "message", :value => "type a message"}/
-    .send
-      %input#send{:name => "send", :type => "send", :value => "send"}/
+    = form_for [@group, @message] do |f|
+      .message
+        = f.text_field :body, placeholder: 'type a message', class: "input_message"
+      .send
+        = f.submit :send, class: "input_message"
