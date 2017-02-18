@@ -10,7 +10,6 @@ require 'rails_helper'
     it 'is invalid without a body' do
       message = build(:message, body: nil)
       message.valid?
-      binding.pry
       expect(message.errors[:body]).to include("を入力してください。")
     end
 
