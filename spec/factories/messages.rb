@@ -1,10 +1,13 @@
 FactoryGirl.define do
+
   factory :message do
-    id 1
+    id    Faker::Number.digit
     body 'techcamp'
-    user
-    group
-    created_at '2017-02-14 05:15:58'
-    updated_at '2017-02-14 05:15:58'
+    image Faker::Avatar.image
+    user_id Faker::Number.digit
+    group_id Faker::Number.digit
+    created_at { Faker::Time.between(2.days.ago, Time.now, :all) }
+    updated_at { Faker::Time.between(2.days.ago, Time.now, :all) }
   end
+
 end

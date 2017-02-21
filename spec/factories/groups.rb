@@ -1,8 +1,12 @@
 FactoryGirl.define do
+
+  group_id = Faker::Number.digit
+
   factory :group do
-    id 1
+    id         group_id
     group_name "aa"
-    created_at '2017-02-14 05:15:58'
-    updated_at '2017-02-14 05:15:58'
+    created_at { Faker::Time.between(3.days.ago, Time.now, :all) }
+    updated_at { Faker::Time.between(3.days.ago, Time.now, :all) }
   end
+
 end
