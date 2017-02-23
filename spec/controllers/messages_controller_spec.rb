@@ -11,8 +11,20 @@ RSpec.describe MessagesController, type: :controller do
 
   describe 'GET #index' do
 
-    it "renders the :index template" do
+    before do
       get :index, group_id: group.id
+    end
+
+    it "assigns the requested @group" do
+      expect(assigns(:group)).to eq group
+    end
+
+    it "populates an array of messages" do
+      messages = build_list(:message, 3)
+      expect(assigns(:messages)).to eq([messages])
+    end
+
+    it "renders the :index template" do
       expect(response).to render_template :index
     end
 
@@ -34,5 +46,3 @@ RSpec.describe MessagesController, type: :controller do
   end
 
 end
-
-
