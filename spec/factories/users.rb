@@ -1,7 +1,6 @@
 FactoryGirl.define do
 
   pass = Faker::Internet.password(8)
-  user_id = Faker::Number.digit
 
   factory :user do
     name                  Faker::Name.name
