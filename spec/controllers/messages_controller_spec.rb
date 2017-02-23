@@ -12,7 +12,7 @@ RSpec.describe MessagesController, type: :controller do
   describe 'GET #index' do
 
     before do
-      get :index, params: {group_id: group.id}
+      get :index, params: { group_id: group.id }
     end
 
     it "assigns the requested @group" do
@@ -34,12 +34,12 @@ RSpec.describe MessagesController, type: :controller do
 
     it "saves a message in the database" do
       expect{
-        post :create, params: {group_id: group.id, message: attributes_for(:message)}
+        post :create, params: { group_id: group.id, message: attributes_for(:message) }
       }.to change(Message, :count).by(1)
     end
 
     it "redirects to messages#index" do
-      post :create, params: {group_id: group.id, message: attributes_for(:message)}
+      post :create, params: { group_id: group.id, message: attributes_for(:message) }
       expect(message).to redirect_to group_messages_path
     end
 
