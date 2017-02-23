@@ -1,9 +1,9 @@
 require 'rails_helper'
 RSpec.describe MessagesController, type: :controller do
 
-  let(:user) { create(:user) }
-  let(:group) { build(:group) }
-  let(:message) { build(:message) }
+  let(:user)    { create(:user) }
+  let(:group)   { create(:group) }
+  let(:message) { create(:message, group: group, user: user) }
 
   before do
     login_user(user)
@@ -20,8 +20,8 @@ RSpec.describe MessagesController, type: :controller do
     end
 
     it "populates an array of messages" do
-      messages = build_list(:message, 3)
-      expect(assigns(:messages)).to eq([messages])
+      messages = create_list(:message, 3, group: group)
+      expect(assigns(:messages)).to eq messages
     end
 
     it "renders the :index template" do

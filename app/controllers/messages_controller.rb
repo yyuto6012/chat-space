@@ -17,7 +17,6 @@ before_action :selected_group, only: [:index]
     end
   end
 
-
 private
 
   def all_groups
