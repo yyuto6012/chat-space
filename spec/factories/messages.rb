@@ -1,10 +1,12 @@
 FactoryGirl.define do
+
   factory :message do
-    id 1
     body 'techcamp'
+    image Faker::Avatar.image
     user
     group
-    created_at '2017-02-14 05:15:58'
-    updated_at '2017-02-14 05:15:58'
+    created_at { Faker::Time.between(2.days.ago, Time.now, :all) }
+    updated_at { Faker::Time.between(2.days.ago, Time.now, :all) }
   end
+
 end
