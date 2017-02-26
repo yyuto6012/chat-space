@@ -9,11 +9,13 @@ before_action :selected_group, only: [:index]
 
   def create
     @message = Message.new(message_params)
-    if @message.save
-      redirect_to controller: :messages, action: :index
-    else
-      redirect_to controller: :messages, action: :index
-      flash[:notice] = "メッセージ送信が失敗しました！"
+    respond_to do |format|
+        if @message.save
+            format.html { redirect_to :group_messages }
+            format.json
+        else
+            format.html { redirect_to :group_messages, flash: "メッセージ送信が失敗しました！" }
+        end
     end
   end
 
