@@ -1,9 +1,15 @@
 $(function(){
   function buildHTML(message) {
-    var html1 = $('.user_name').append(message.name);
-    var html2 = $('.message_body').append(message.body);
-    return html1, html2 ;
-  }
+    var html = "<li class='message'>" +
+               "<div class='user_name'>" +
+               message.name +
+               "</div>" +
+               "<div class='message_body'>" +
+               message.body +
+               "</div>" +
+               "</li>";
+    $('.messages').append(html);
+  };
 
   $('.send-message').on('submit', function(e){
     e.preventDefault();
@@ -20,8 +26,7 @@ $(function(){
       dataType: 'json'
     })
     .done(function(data){
-      var html = buildHTML(data);
-    $('.message').append(html);
+      buildHTML(data['message']);
       textField.val('');
     })
     .fail(function(){

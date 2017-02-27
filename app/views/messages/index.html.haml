@@ -12,9 +12,9 @@
         %input#edit_button{:name => "edit", :type => "edit", :value => "edit"}/
   .chat-screen__messages
     - if @messages
-      - @messages.each do |message|
-        %ul.messages
-          %li
+      %ul.messages
+        - @messages.each do |message|
+          %li.message
             .user_name
               = message.user.name
             .message_body
