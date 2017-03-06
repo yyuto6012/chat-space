@@ -27,8 +27,8 @@ $(function() {
 
   function AddUser(user_id, user_name) {
         var list = buildAddUser(user_id, user_name);
-        $('.add-users').append(list)
-  }
+        $('.add-users').append(list);
+  };
 
   $('.chat-group-form__field--right').on('keyup', function(e){
       var textField = $('.chat-users-form ');
@@ -61,7 +61,4 @@ $(function() {
   });
 
 });
-
-
-
 
