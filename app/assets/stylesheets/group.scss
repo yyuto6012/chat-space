@@ -1,3 +1,8 @@
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+  }
 .chat-group-form {
   width: 980px;
   margin: 60px auto;
@@ -93,11 +98,6 @@
         padding: 10px 15px;
         color: #38aef0;
       }
-      .clearfix:after {
-        content: "";
-        clear: both;
-        display: block;
-      }
       &__line {
          border: 0.5px solid #ddd;
          width: 100%;
@@ -119,11 +119,6 @@
         float: right;
         padding: 10px 15px;
         color: red;
-      }
-        .clearfix:after {
-          content: "";
-          clear: both;
-          display: block;
         }
         &__line {
          border: 0.5px solid #ddd;
