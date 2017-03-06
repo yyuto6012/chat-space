@@ -1,6 +1,6 @@
 .chat-group-form
   %h1 チャットグループ編集
-  = form_for @group do |f|
+  = form_for @group, html: { class: 'edit-group' } do |f|
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label :グループ名, class: "chat-group-form__label"
@@ -10,8 +10,20 @@
       .chat-group-form__field--left
         = f.label :チャットメンバーを追加名, class: "chat-group-form__label"
       .chat-group-form__field--right
-        = f.collection_check_boxes(:user_ids, User.all, :id, :name) do |b|
-          = b.label { b.check_box + b.text }
+        %input.chat-users-form{:name => "keyword", :placeholder => "追加したいメンバーを入力してください", :type => "text", :value => ""}/
+        %p.results
+    .chat-group-form__field.clearfix
+      .chat-group-form__field--left
+        = f.label :チャットメンバー, class: "chat-group-form__label"
+      .chat-group-form__field--right
+        %ul
+        - @group.users.each do |user|
+          %li.users.clearfix
+            .users__name
+              = user.name
+            %input.users__btn{type: "hidden", name: "group[user_ids][]", value: user.id } 削除
+          %hr.users__line
+        .add-users
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right

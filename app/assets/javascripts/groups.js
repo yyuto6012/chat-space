@@ -14,19 +14,20 @@ $(function() {
   };
 
   function buildAddUser(user_id, user_name) {
-    var list = "<li class='users'>" +
+    var list = "<div class='users'>" +
                "<input type='hidden' name='group[user_ids][]' value="+ user_id +" />" +
                "<p class='users__name'>" +
                user_name +
                "</p>" +
                "<a id='remove-user__btn' data-id=" + user_id + " data-name=" + user_name + ">削除</a>" +
-               "</li>";
+               "</div>" +
+               "<hr class='users__line'>";
     return list;
   };
 
   function AddUser(user_id, user_name) {
-    var list = buildAddUser(user_id, user_name);
-    $('.add-users').append(list)
+        var list = buildAddUser(user_id, user_name);
+        $('.add-users').append(list)
   }
 
   $('.chat-group-form__field--right').on('keyup', function(e){
