@@ -1,3 +1,8 @@
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+  }
 .chat-group-form {
   width: 980px;
   margin: 60px auto;
@@ -53,6 +58,9 @@
     .chat-group-form__field--right {
       float: right;
       width: 70%;
+      ul .user_name {
+        list-style:none;
+      }
     }
 
     .chat-group-form__label {
@@ -68,6 +76,54 @@
       line-height: 30px;
       padding: 10px 15px;
       box-sizing: border-box;
+    }
+
+    .chat-users-form {
+      float: left;
+      width: 100%;
+      line-height: 30px;
+      padding: 10px 15px;
+      box-sizing: border-box;
+    }
+
+    .add-user {
+      width: 100%;
+
+      &__name {
+        float: left;
+        padding: 10px 15px;
+      }
+      #add-user__btn {
+        float: right;
+        padding: 10px 15px;
+        color: #38aef0;
+      }
+      &__line {
+         border: 0.5px solid #ddd;
+         width: 100%;
+      }
+    }
+    .users {
+        width: 100%;
+        list-style: none;
+        &__name {
+          float: left;
+          padding: 10px 15px;
+        }
+        &__btn {
+          float: right;
+          padding: 10px 15px;
+          color: red;
+        }
+        #remove-user__btn {
+        float: right;
+        padding: 10px 15px;
+        color: red;
+        }
+        &__line {
+         border: 0.5px solid #ddd;
+         width: 100%;
+        }
     }
   }
 
@@ -104,3 +160,4 @@
     border: 0;
   }
 }
+
