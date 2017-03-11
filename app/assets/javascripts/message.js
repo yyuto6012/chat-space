@@ -31,7 +31,6 @@ $(function(){
     })
     .done(function(data){
       buildHTML(data);
-      console.log(data)
     })
     .fail(function(){
       alert('error');

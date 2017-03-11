@@ -26,9 +26,8 @@
     = form_for [@group, @message], html: { class: 'send-message' } do |f|
       .message
         = f.text_field :body, placeholder: 'type a message', class: "input_message"
-        .send-image
+        .image
           = f.file_field :image, class: "input_image"
           %i.fa.fa-picture-o
-        /   = f.file_field :image, class: "input_image"
       .send
         = f.submit :send, class: 'input_message'
