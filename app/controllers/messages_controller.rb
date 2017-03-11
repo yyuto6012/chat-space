@@ -13,8 +13,8 @@ before_action :selected_group, only: [:index]
         if @message.save
             format.html { redirect_to :group_messages }
             format.json
-        else
-            format.html { redirect_to :group_messages, flash: "メッセージ送信が失敗しました！" }
+        # else
+        #     format.html { redirect_to :group_messages, flash: "メッセージ送信が失敗しました！" }
         end
     end
   end
