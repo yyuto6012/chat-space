@@ -5,6 +5,11 @@ before_action :selected_group, only: [:index]
   def index
     @messages = @group.messages
     @message = Message.new
+    respond_to do |format|
+      format.html
+      format.json
+    end
+
   end
 
   def create
@@ -13,8 +18,8 @@ before_action :selected_group, only: [:index]
         if @message.save
             format.html { redirect_to :group_messages }
             format.json
-        # else
-        #     format.html { redirect_to :group_messages, flash: "メッセージ送信が失敗しました！" }
+        else
+            format.html { redirect_to :group_messages, flash: "メッセージ送信が失敗しました！" }
         end
     end
   end
