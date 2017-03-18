@@ -1,22 +1,23 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
+
   function buildHTML(message) {
     if (message.image) {
       var image = "<img src=" + message.image + ">";
-    }
-    else  {
+    } else {
       var image = "";
     }
 
-    var html = "<li class='message'>" +
-               "<div class='user_name'>" +
-               message.name +
-               "</div>" +
-               "<div class='message_body'>" +
-               message.body +
-               image +
-               "</div>" +
-               "</li>";
-    $('.messages').append(html);
+      var html = "<li class='message'>" +
+                 "<div class='user_name'>" +
+                 message.name +
+                 "</div>" +
+                 "<div class='message_body'>" +
+                 message.body +
+                 image +
+                 "</div>" +
+                 "</li>";
+      return html;
+      console.log(html);
   };
 
   $('.send-message').on('submit', function(e){
@@ -30,10 +31,30 @@ $(function(){
       dataType: 'json'
     })
     .done(function(data){
-      buildHTML(data);
+      $('#new_message')[0].reset();
+      var html = buildHTML(data);
+      $('.messages').append(html);
     })
     .fail(function(){
       alert('error');
     });
   });
+
+  setInterval(function(){
+    $.ajax({
+        type: 'GET',
+        url: './messages',
+        dataType: 'json',
+        })
+        .done(function(data){
+        var messages = data.messages;
+        var newHTML = '';
+        $('.messages').empty(messages);
+        $.each(messages, function(i, message) {
+          newHTML = buildHTML(message);
+          $('.messages').append(newHTML);
+          });
+        })
+  }, 10000);
+
 });
