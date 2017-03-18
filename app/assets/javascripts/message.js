@@ -3,8 +3,7 @@ $(document).on('turbolinks:load', function(){
   function buildHTML(message) {
     if (message.image) {
       var image = "<img src=" + message.image + ">";
-    }
-    else  {
+    } else {
       var image = "";
     }
 
@@ -17,11 +16,8 @@ $(document).on('turbolinks:load', function(){
                  image +
                  "</div>" +
                  "</li>";
-      $('.messages').append(html);
-  };
-
-  function auto_load(newHTML){
-    $('.messages').append(newHTML);
+      return html;
+      console.log(html);
   };
 
   $('.send-message').on('submit', function(e){
@@ -35,7 +31,9 @@ $(document).on('turbolinks:load', function(){
       dataType: 'json'
     })
     .done(function(data){
-      buildHTML(data);
+      $('#new_message')[0].reset();
+      var html = buildHTML(data);
+      $('.messages').append(html);
     })
     .fail(function(){
       alert('error');
@@ -49,14 +47,14 @@ $(document).on('turbolinks:load', function(){
         dataType: 'json',
         })
         .done(function(data){
-        var old_messages = $('.message').length;
-        var new_messages = data.messages.length;
+        var messages = data.messages;
         var newHTML = '';
-        for( i = old_messages; i < new_messages; i++ ) {
-          newHTML += buildHTML(data.messages[i]);
-          auto_load(newHTML);
-          }
+        $('.messages').empty(messages);
+        $.each(messages, function(i, message) {
+          newHTML = buildHTML(message);
+          $('.messages').append(newHTML);
+          });
         })
-  }, 30000);
+  }, 10000);
 
 });
