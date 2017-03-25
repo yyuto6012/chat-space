@@ -2,11 +2,13 @@
 .chat-screen
   .chat-screen__group{:clearfix => ""}
     .group-name
-      = @group.group_name
+      %h1
+        = @group.group_name
       .chat_users
         %h2 Members:
-        - @group.users.each do |user|
-          = user.name
+        %h3
+          - @group.users.each do |user|
+            = user.name
     .edit
       = link_to edit_group_path(@group) do
         %input#edit_button{:name => "edit", :type => "edit", :value => "edit"}/
