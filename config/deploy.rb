@@ -15,6 +15,14 @@ set :ssh_options, auth_methods: ['publickey'],
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 
+set :default_env, {
+  rbenv_root: "/usr/local/bin/rbenv",
+  path: "~/.rbenv/shims:~/.rbenv/bin:$PATH",
+  AWS_REGION: ENV['AWS_REGION'],
+  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
+  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+}
+
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
