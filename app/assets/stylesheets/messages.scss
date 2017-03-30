@@ -64,6 +64,7 @@
     &__submit {
       height: 100px;
       background-color: #434A54;
+      bottom: 0;
           .message {
             float: left;
             padding-top: 20px;
@@ -76,23 +77,20 @@
             border-style: none;
             font-size: 15px;
                         }
+                    }
         .image {
             float: left;
             width: 60px;
             height: 60px;
             background-color: white;
-          // #input_image {
-          //             width: 50px;
-          //             height: 40px;
-          //              }
+            margin-top: 20px;
                   .fa.fa-picture-o
                           {
                       width: 30px;
-                      padding-top: 50px;
+                      padding-top: 25px;
                       padding-right: 10px;
                           }
                     }
-                }
           }
           .send {
              float: right;

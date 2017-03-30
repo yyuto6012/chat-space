@@ -14,14 +14,13 @@ $(function() {
   };
 
   function buildAddUser(user_id, user_name) {
-    var list = "<div class='users'>" +
+    var list = "<div class='users' clearfix>" +
                "<input type='hidden' name='group[user_ids][]' value="+ user_id +" />" +
                "<p class='users__name'>" +
                user_name +
                "</p>" +
                "<a id='remove-user__btn' data-id=" + user_id + " data-name=" + user_name + ">削除</a>" +
-               "</div>" +
-               "<hr class='users__line'>";
+               "</div>"
     return list;
   };
 
@@ -30,8 +29,8 @@ $(function() {
         $('.add-users').append(list);
   };
 
-  $('.chat-group-form__field--right').on('keyup', function(e){
-      var textField = $('.chat-users-form ');
+  $('.chat-group-form__field--right').on('keyup', '.chat-users-form', function(e){
+      var textField = $('.chat-users-form');
       var keyword = textField.val();
       $.ajax({
           type: 'GET',
