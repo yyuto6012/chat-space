@@ -7,6 +7,7 @@ before_action :set_group, only: [:edit, :update]
 
   def create
     @group = Group.create(groups_params)
+    @group.users << current_user
     redirect_to controller: :top, action: :index
   end
 
@@ -14,8 +15,8 @@ before_action :set_group, only: [:edit, :update]
   end
 
   def update
-      @group.update(groups_params)
-      redirect_to controller: :top, action: :index
+    @group.update(groups_params)
+    redirect_to controller: :top, action: :index
   end
 
   private

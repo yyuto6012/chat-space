@@ -16,6 +16,9 @@
       .chat-group-form__field--left
         = f.label :チャットメンバー, class: "chat-group-form__label"
       .chat-group-form__field--right
+        .users
+          .users_name
+            = current_user.name
         .add-users.clearfix
     .chat-group-form__field.clearfix
       .chat-group-form__field--left

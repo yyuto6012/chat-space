@@ -33,11 +33,13 @@ $(document).on('turbolinks:load', function(){
     .done(function(data){
       $('#new_message')[0].reset();
       var html = buildHTML(data);
+      console.log(html)
       $('.messages').append(html);
     })
     .fail(function(){
       alert('error');
     });
+    return false;
   });
 
   setInterval(function(){
@@ -55,6 +57,6 @@ $(document).on('turbolinks:load', function(){
           $('.messages').append(newHTML);
           });
         })
-  }, 10000);
+  }, 100000000000);
 
 });
